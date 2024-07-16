@@ -21,7 +21,7 @@ while True:
 
     print(result)
 
-    answer = str(input("Do you want to continue?").lower())
+    answer = input("Do you want to continue?").lower()
 
     if answer == "yes" or answer == "y":
         continue

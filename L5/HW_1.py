@@ -1,7 +1,7 @@
 # import string
 # import keyword
 #
-# variable = str(input("Enter a name of variable:"))
+# variable = input("Enter a name of variable:")
 # #Check that the variable starts with a number
 # if variable[0].isdigit():
 #     result = False
@@ -24,18 +24,18 @@
 #     result = True
 # print(result)
 
-import string
 import keyword
+import string
 
-variable = str(input("Enter a name of variable:"))
+variable = input("Enter a name of variable:")
 
 result = (
-    not variable[0].isdigit()
-    and not any(char.isupper() for char in variable)
-    and not any(char in string.punctuation.replace("_", "") for char in variable)
-    and " " not in variable
-    and variable not in keyword.kwlist
-    and variable.count("__") <= 0
+        not variable[0].isdigit()
+        and not any(char.isupper() for char in variable)
+        and not any(char in string.punctuation.replace("_", "") for char in variable)
+        and " " not in variable
+        and variable not in keyword.kwlist
+        and variable.count("__") <= 0
 )
 
 print(result)
