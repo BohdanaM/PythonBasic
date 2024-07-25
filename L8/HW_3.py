@@ -1,16 +1,20 @@
 def find_unique_value(some_list):
-    count = {}
+    # count = {}
+    #
+    # # Add values to counter
+    # for num in some_list:
+    #     if num in count:
+    #         count[num] += 1
+    #     else:
+    #         count[num] = 1
+    #
+    # # Find unique value
+    # for num in some_list:
+    #     if count[num] == 1:
+    #         return num
 
-    # Add values to counter
     for num in some_list:
-        if num in count:
-            count[num] += 1
-        else:
-            count[num] = 1
-
-    # Find unique value
-    for num in some_list:
-        if count[num] == 1:
+        if some_list.count(num) == 1:
             return num
 
 
