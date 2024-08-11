@@ -30,11 +30,9 @@ class Group:
         self.group.add(student)
 
     def delete_student(self, last_name):
-        for student in self.group:
-            if student.last_name == last_name:
-                self.group.remove(student)
-                return True
-        return False
+        student = self.find_student(last_name)
+        if student:
+            self.group.remove(student)
 
     def find_student(self, last_name):
         for student in self.group:
