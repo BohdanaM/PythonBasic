@@ -10,6 +10,13 @@ class Rectangle:
     def get_square(self):
         return self.width * self.height
 
+    def scale_area(self, total_area):
+        """Scale the rectangle to have a given area while maintaining the fixed ratio."""
+        fixed_ratio = self.width / self.height
+        new_width = math.sqrt(total_area * fixed_ratio)
+        new_height = total_area / new_width
+        return new_width, new_height
+
     def __eq__(self, other):
         if isinstance(other, Rectangle):
             return self.get_square() == other.get_square()
@@ -19,9 +26,7 @@ class Rectangle:
         if isinstance(other, Rectangle):
             total_area = self.get_square() + other.get_square()
             # Use a fixed ratio for the new rectangle
-            fixed_ratio = self.width / self.height
-            new_width = math.sqrt(total_area * fixed_ratio)
-            new_height = total_area / new_width
+            new_width, new_height = self.scale_area(total_area)
             return Rectangle(new_width, new_height)
         return NotImplemented
 
@@ -29,9 +34,7 @@ class Rectangle:
         if isinstance(n, (int, float)):
             total_area = self.get_square() * n
             # Use a fixed ratio for the new rectangle
-            fixed_ratio = self.width / self.height
-            new_width = math.sqrt(total_area * fixed_ratio)
-            new_height = total_area / new_width
+            new_width, new_height = self.scale_area(total_area)
             return Rectangle(new_width, new_height)
         return NotImplemented
 
