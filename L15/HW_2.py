@@ -9,24 +9,27 @@ class Fraction:
             self.a = -self.a
             self.b = -self.b
 
+    def common_denominator(self, other):
+        return self.b * other.b
+
     def __mul__(self, other):
         if isinstance(other, Fraction):
             new_numerator = self.a * other.a
-            new_denominator = self.b * other.b
+            new_denominator = self.common_denominator(other)
             return Fraction(new_numerator, new_denominator)
         return NotImplemented
 
     def __add__(self, other):
         if isinstance(other, Fraction):
             new_numerator = self.a * other.b + other.a * self.b
-            new_denominator = self.b * other.b
+            new_denominator = self.common_denominator(other)
             return Fraction(new_numerator, new_denominator)
         return NotImplemented
 
     def __sub__(self, other):
         if isinstance(other, Fraction):
             new_numerator = self.a * other.b - other.a * self.b
-            new_denominator = self.b * other.b
+            new_denominator = self.common_denominator(other)
             return Fraction(new_numerator, new_denominator)
         return NotImplemented
 
